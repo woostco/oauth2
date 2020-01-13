@@ -44,7 +44,7 @@ import 'utils.dart';
 ///
 /// [standard JSON response]: https://tools.ietf.org/html/rfc6749#section-5.1
 Future<Client> socialGrant(
-    Uri authorizationEndpoint, String network, String token,
+    Uri authorizationEndpoint, String provider, String token,
     {String identifier,
     String secret,
     Iterable<String> scopes,
@@ -58,7 +58,8 @@ Future<Client> socialGrant(
 
   var body = {
     "grant_type": "social",
-    "network": network,
+    "network": provider,
+    "provider": provider,
     "access_token": token
   };
 
